@@ -1,0 +1,13 @@
+20/07/2020 14:30:37 - site is online false
+20/07/2020 14:31:17 - http://www.alura.com.br is online true
+20/07/2020 14:31:18 - http://www.google.com.br is online true
+20/07/2020 14:31:18 - https://random-status-code.herokuapp.com/ is online true
+20/07/2020 14:31:23 - http://www.alura.com.br is online true
+20/07/2020 14:31:23 - http://www.google.com.br is online true
+20/07/2020 14:31:24 - https://random-status-code.herokuapp.com/ is online false
+20/07/2020 14:31:30 - http://www.alura.com.br is online true
+20/07/2020 14:31:30 - http://www.google.com.br is online true
+20/07/2020 14:31:30 - https://random-status-code.herokuapp.com/ is online false
+20/07/2020 14:31:36 - http://www.alura.com.br is online true
+20/07/2020 14:31:36 - http://www.google.com.br is online true
+20/07/2020 14:31:37 - https://random-status-code.herokuapp.com/ is online true
