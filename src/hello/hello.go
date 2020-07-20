@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 )
+
+const countMonitoring = 4
+const schedullerTimeLoopMonitoring = 5
 
 func main() {
 
@@ -20,10 +24,8 @@ func main() {
 			monitoring()
 		case 2:
 			fmt.Println("Logs ..")
-			os.Exit(0)
 		case 0:
 			fmt.Println("Exit .. ")
-			os.Exit(0)
 		default:
 			fmt.Println("command not found")
 			os.Exit(-1)
@@ -56,21 +58,30 @@ func readCommand() int {
 }
 
 func monitoring() {
-	var sites [4]string
-	sites[0] = "http://www.alura.com.br"
-	sites[1] = "http://www.google.com.br"
-	sites[2] = ""
-	sites[3] = ""
+	sites := []string{"http://www.alura.com.br", "http://www.google.com.br",
+		"https://random-status-code.herokuapp.com/"}
 
-	site := "http://www.alura.com.br"
-	fmt.Println("watch status in ..", site)
-	http.Get(site)
+	for i := 0; i < countMonitoring; i++ {
+		for _, site := range sites {
+			http.Get(site)
+
+			isOlineHealthSite(site)
+		}
+		fmt.Println("await next monitoring .. ")
+		time.Sleep(schedullerTimeLoopMonitoring * time.Second) //scheduler monitoring
+
+	}
+
+	fmt.Println(" ")
+}
+
+func isOlineHealthSite(site string) {
 	resp, _ := http.Get(site)
 
 	if resp.StatusCode == 200 {
-		fmt.Println("website", site, "online")
+		fmt.Println("website", site, "is online")
 	} else {
-		fmt.Println("website", site, "offline")
+		fmt.Println("website", site, "is offline")
 	}
 }
 
