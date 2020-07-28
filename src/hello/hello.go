@@ -15,7 +15,7 @@ import (
 const countMonitoring = 4
 const delayMonitoring = 5
 const fileLogger = "log.txt"
-const fileSitesForMonitoring = "log.txt"
+const fileSitesForMonitoring = "sites.txt"
 
 func main() {
 	for {
